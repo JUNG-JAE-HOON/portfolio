@@ -15,6 +15,7 @@ var param = require('./routes/param');
 var daumStock = require('./routes/daum-stock');
 var worknet = require('./routes/worknet');
 var search = require('./routes/search');
+var searchBack = require('./routes/search-back');
 
 var app = express();
 
@@ -39,8 +40,11 @@ app.use('/yahoo', yahoo);
 app.use('/param', param);
 app.use('/daum-stock', daumStock);
 app.use('/worknet', worknet);
+app.use('/search', search);
+app.use('/search-back', searchBack);
 
 
+app.use('/js', express.static(__dirname + '/public/scripts')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap

@@ -1,0 +1,29 @@
+<% layout('layout.ejs') %>
+
+  <div class="col-lg-12">
+  	<form role="search">
+	    <div class="input-group col-lg-12 col-md-12">
+	      <input type="text" class="search-form form-control typeahead tt-query" spellcheck="false" autocomplete="off" name="stockName" placeholder="종목명을 입력해주세용">
+	      <span class="search-btn input-group-btn">
+	        <button class="btn btn-default searchGo">Go!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	</form>
+  </div><!-- /.col-lg-12 -->
+
+  <script>
+  	$(document).ready(function(){
+    $('input.typeahead').typeahead({
+    name: 'typeahead',
+    remote: 'http://localhost:3000/search-back?key=%QUERY',
+    limit: 10
+    });
+    });
+
+    $(".searchGo").click(function(){
+      $.get("http://localhost:3000/search",function(data){
+        alert(data.test1);
+        alert(test1);
+      })
+    });
+  </script>
