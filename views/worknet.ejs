@@ -1,0 +1,55 @@
+<% layout('layout') %>
+
+<div class="jumbotron">
+  <h1>워크넷 api를 이용해서 만든 리스트입니다.</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<div class="page-header row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <h1>워크넷 목록입니다. <small>Subtext for header</small></h1>
+  </div>
+  <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 refresh">
+    <button type="button" class="btn btn-primary btn-lg pull-right" on-click="alert()">새로고침</button>
+  </p>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <% for(var i=0;i<list.length;i++){%>
+  <div class="panel panel-default">
+     <div class="panel-heading" role="tab" id="headingOne">
+    
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" aria-expanded="true" aria-controls="collapseOne">
+          <%= list[i].title %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul>
+        	<li><%= list[i].title %></li>
+        	<li><%= list[i].company %></li>
+        	<li><%= list[i].sal %></li>
+        	<li><%= list[i].region %></li>
+        	<li><%= list[i].region %></li>
+        	<li><%= list[i].minEdubg %></li>
+        	<li><%= list[i].maxEdubg %></li>
+        	<li><%= list[i].career %></li>
+        	<li><%= list[i].regDt %></li>
+        	<li><%= list[i].closeDt %></li>
+        	<li><%= list[i].basicAddr %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<div class="row">
+  <p>
+    <button type="button" class="btn btn-primary btn-lg pull-right">일방웹으로 보내기</button>
+    <button type="button" class="btn btn-primary btn-lg pull-right">일방모바일로 보내기</button>
+  </p>
+</div>

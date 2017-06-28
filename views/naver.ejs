@@ -1,0 +1,58 @@
+<% layout('layout') %>
+<style>
+  li{list-style: none}
+  ul{padding-left:.5em;}
+</style>
+<div class="jumbotron">
+  <h3>네이버 개발자 API키를 이용한 블로그 파싱</h3>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<div class="page-header row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <h1>워크넷 목록입니다. <small>Subtext for header</small></h1>
+  </div>
+  <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 refresh">
+    <button type="button" class="btn btn-primary btn-lg pull-right clickTest">새로고침</button>
+  </p>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <% for(var i=0;i<list.length;i++){%>
+  <div class="panel panel-default">
+     <div class="panel-heading" role="tab" id="headingOne">
+    
+      <h4 class="panel-title panel-title<%=i%>">
+        <a class="test" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" aria-expanded="true" aria-controls="collapseOne">
+          <%= list[i].title %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body panel-body<%=i%>">
+        <ul>
+          <li class="desc"><%= list[i].desc %></li>
+          <li class="writer">출처 : <%= list[i].user %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+
+<script>
+$(".clickTest").click(function(){
+    // $(".panel-group").html("");
+  $.post("/naver",function(result){
+    for(var i in result.list){
+      $(".panel-title"+i+"> .test").html(result.list[i].title); 
+      $(".panel-body"+i+" .desc").html(result.list[i].desc); 
+      $(".panel-body"+i+" .writer").html("출처 : "+result.list[i].user); 
+    }
+     
+     // console.log();
+  });
+});
+</script>

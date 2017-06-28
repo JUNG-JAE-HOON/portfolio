@@ -1,0 +1,60 @@
+<% layout('layout') %>
+정보 출처 : 야후파이낸스
+<style>
+ul{overflow: hidden;}
+	li{float:left; list-style:none; margin-right: 2em;}
+
+</style>
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<div class="page-header row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <h1>워크넷 목록입니다. <small>Subtext for header</small></h1>
+  </div>
+  <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 refresh">
+    <button type="button" class="btn btn-primary btn-lg pull-right" on-click="alert()">새로고침</button>
+  </p>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+  </div><!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+  	<form role="search" method="get" action="yahoo">
+	    <div class="input-group">
+	      <input type="text" class="form-control" placeholder="Search for..." name="stockName">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="submit">Go!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	</form>
+  </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+
+<% for(var i=0; i<priceList.length;i++){ %>
+	<ul>
+		<li>
+			<%= priceList[i].date %>
+		</li>
+		<li>
+			<%= priceList[i].open %>
+		</li>
+		<li>
+			<%= priceList[i].high %>
+		</li>
+		<li>
+			<%= priceList[i].low %>
+		</li>
+		<li>
+			<%= priceList[i].adjClose %>	
+		</li>
+		<li>
+			<%= priceList[i].volume %>
+		</li>
+	</ul>
+<%}%>
+<%= stockName %>

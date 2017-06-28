@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>포트폴리오 ^~^</title>
+	
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	
+	<%- stylesheet("stylesheets/style.css") %>
+	<%- stylesheet("css/bootstrap.min.css") %>
+	<%- script("js/jquery.min.js")%>
+	<%- script("js/bootstrap.min.js")%>
+</head>
+<body>
+	<div class="container">
+		<%- partial('header.ejs') %>
+		<%- body %>
+		<%- partial('footer.ejs') %>
+	</div>	
+</body>
+</html>
