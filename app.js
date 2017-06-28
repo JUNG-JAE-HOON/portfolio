@@ -14,6 +14,7 @@ var yahoo = require('./routes/yahoo');
 var param = require('./routes/param');
 var daumStock = require('./routes/daum-stock');
 var worknet = require('./routes/worknet');
+var search = require('./routes/search');
 
 var app = express();
 
